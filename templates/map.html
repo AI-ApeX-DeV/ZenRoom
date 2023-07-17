@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Find the Nearest Mental Fitness Therapist</title>
+    <style>
+        /* Set the height of the map container */
+        #map {
+            height: 500px;
+        }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDft__DRAFKvpiW8hkJrsvexDGCPldeNpk&libraries=places"
+        10 defer></script>
+    <script>
+        // Initialize the Google Maps API
+        function initMap() {
+            // Check if the user's location can be determined
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function (position) {
+                        // Create a LatLng object for the user's location
+                        var userLocation = new google.maps.LatLng(
+                            position.coords.latitude,
+                            position.coords.longitude
+                        );
+
+                        // Create a new map centered on the user's location
+                        var map = new google.maps.Map(document.getElementById("map"), {
+                            center: userLocation,
+                            zoom: 14,
+                        });
+
+                        // Create a request to search for mental fitness therapists within a 10km radius of the user's location
+                        var request = {
+                            location: userLocation,
+                            radius: "10000",
+                            type: ["health"],
+                            keyword: ["mental fitness therapist"],
+                        };
+
+                        // Perform the nearby search and add markers for each result
+                        var service = new google.maps.places.PlacesService(map);
+                        service.nearbySearch(request, function (results, status) {
+                            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                                for (var i = 0; i < results.length; i++) {
+                                    var marker = new google.maps.Marker({
+                                        position: results[i].geometry.location,
+                                        map: map,
+                                        title: results[i].name,
+                                    });
+                                }
+                            }
+                        });
+                    },
+                    function (error) {
+                        // Handle errors with geolocation
+                        alert("Geolocation error: " + error.message);
+                    }
+                );
+            } else {
+                // Handle case where browser does not support geolocation
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+    </script>
+</head>
+
+<body onload="initMap()">
+    <div id="map"></div>
+</body>
+
+</html>

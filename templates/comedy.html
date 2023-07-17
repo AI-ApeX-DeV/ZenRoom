@@ -1,0 +1,575 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Predict Disease</title>
+</head>
+
+<body>
+    <h1>Predict Disease</h1>
+    <link rel="stylesheet" href="disease.css">
+    <form id="symptom-form" class="form-group">
+        <!-- <input type="text" id="search-bar" placeholder="Search symptoms..."> -->
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Search symptoms...">
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label><input type='checkbox' name='symptoms[]' value='0'>abdominal cramp</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='1'>abdominal distention</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='2'>abnormal behavior</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='3'>abnormal bleeding</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='4'>abnormal sensation</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='5'>abnormally frequent</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='6'>abscess</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='7'>aching</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='8'>acne</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='9'>acquiring drinking alcohol taking lot
+                    time</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='10'>affected part turning white</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='11'>anemia</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='12'>anxiety</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='13'>arm</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='14'>attack pain</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='15'>back</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='16'>bacterial infection</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='17'>bad breath</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='18'>bad smelling thin vaginal
+                    discharge</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='19'>bad smelling vaginal discharge</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='20'>barky cough</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='21'>belching</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='22'>better sitting worse lying</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='23'>birth baby younger week gestational
+                    age</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='24'>bleeding gum</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='25'>bleeding skin</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='26'>blindness</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='27'>blindness one eye</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='28'>blister sunlight</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='29'>bloating</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='30'>blood stool</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='31'>blood urine</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='32'>bloody diarrhea</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='33'>blue</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='34'>bluish skin coloration</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='35'>blurred vision</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='36'>blurry vision</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='37'>body tremor</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='38'>bone pain</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='39'>bowed leg</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='40'>breakdown skeletal muscle</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='41'>breathing problem</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='42'>bruising</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='43'>burning</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='44'>burning redness eye</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='45'>burning stabbing pain</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='46'>burning urination</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='47'>certain thought repeatedly</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='48'>change bowel movement</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='49'>change breast shape</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='50'>change color</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='51'>change hair</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='52'>change reflex</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='53'>change skin color red black</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='54'>change sleeping eating pattern</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='55'>change taste</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='56'>change voice</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='57'>characteristic facial feature</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='58'>characteristic rash</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='59'>chest discomfort</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='60'>chest pain</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='61'>chest tightness</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='62'>chill</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='63'>chronic cough</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='64'>chronic pain bladder</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='65'>clenched fist overlapping finger</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='66'>close object appear blurry</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='67'>clumsy</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='68'>cm lump skin</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='69'>cold sweat</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='70'>coma</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='71'>confused thinking</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='72'>confusion</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='73'>constipation</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='74'>coolness</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='75'>coordination</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='76'>cough bloody mucus</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='77'>cough sputum production</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='78'>coughing</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='79'>coughing blood</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='80'>coughing including coughing blood</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='81'>coughing mucus</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='82'>crawl</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='83'>cry episode</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='84'>dark urine</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='85'>darker</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='86'>daytime sleepiness</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='87'>death child le one year age</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='88'>decreased ability feel pain</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='89'>decreased ability see</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='90'>decreased ability think</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='91'>decreased ability think remember</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='92'>decreased ability turn</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='93'>decreased appetite</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='94'>decreased motivation</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='95'>decreased range motion</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='96'>decreased taste</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='97'>decreased vision</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='98'>dehydration</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='99'>delayed physical growth</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='100'>delirium</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='101'>delusion</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='102'>dementia</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='103'>depending subtype abdominal pain</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='104'>depends organ involved</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='105'>depressed mood</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='106'>depression</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='107'>dermatitis herpetiformis</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='108'>developmental disability</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='109'>diarrhea</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='110'>diarrhea may bloody</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='111'>diarrhea mixed blood</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='112'>diarrhoea</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='113'>difficulty breathing</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='114'>difficulty cutting</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='115'>difficulty eating</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='116'>difficulty getting pregnant</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='117'>difficulty remembering recent
+                    event</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='118'>difficulty swallowing</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='119'>difficulty walking</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='120'>dimpling skin</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='121'>discharge penis</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='122'>disorientation</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='123'>distant object appear blurry</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='124'>distorted blurred vision
+                    distance</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='125'>dizziness</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='126'>double vision</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='127'>drinking large amount alcohol long
+                    period</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='128'>drooping eyelid</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='129'>dry cough</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='130'>dry damp skin</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='131'>dry eye</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='132'>dry mouth</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='133'>ear pain</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='134'>easy prolonged bleeding</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='135'>emotional problem</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='136'>enlarged lymph node neck</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='137'>enlarged spleen</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='138'>enlarged thyroid</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='139'>enlargement thyroid</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='140'>enlargement tonsil</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='141'>episode severe</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='142'>erythema marginatum</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='143'>excess hair</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='144'>excessive amount uterine
+                    bleeding</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='145'>excessive daytime sleepiness</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='146'>excessive salivation</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='147'>expanding area redness site tick
+                    bite</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='148'>extreme sadness</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='149'>extremity weakness</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='150'>eye pain</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='151'>eye strain</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='152'>eyestrain</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='153'>fast heart rate</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='154'>fast heartbeat</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='155'>fatigue</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='156'>fear water</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='157'>feel need check thing repeatedly</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='158'>feeling cold</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='159'>feeling faint upon standing</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='160'>feeling generally unwell</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='161'>feeling like passing</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='162'>feeling need urinate right away</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='163'>feeling tired</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='164'>feeling tired time</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='165'>fever</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='166'>firm</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='167'>flat discolored spot bump may
+                    blister</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='168'>flu like illness</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='169'>flu like symptom</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='170'>fluid filled blister scab</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='171'>fluid nipple</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='172'>frequent infection</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='173'>frequent urination</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='174'>fullness</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='175'>gas</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='176'>gradual loss coordination</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='177'>growth delay</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='178'>gum disease</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='179'>hair loss</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='180'>half ring finger</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='181'>hallucination</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='182'>hallucination usually hearing
+                    voice</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='183'>hard swelling skin</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='184'>hard time reading small print</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='185'>headache</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='186'>hearing loss</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='187'>hearing sound external sound
+                    present</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='188'>heartburn</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='189'>heat intolerance</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='190'>heavy period</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='191'>high blood pressure</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='192'>high body temperature</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='193'>hoarse voice</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='194'>hold reading material farther
+                    away</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='195'>impaired communication</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='196'>inability child</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='197'>inability move facial muscle one
+                    side</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='198'>inability move feel one side
+                    body</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='199'>increased breath rate</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='200'>increased breathing rate</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='201'>increased fat</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='202'>increased heart rate</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='203'>increased hunger</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='204'>increased risk broken bone</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='205'>increased risk infection</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='206'>increased thirst</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='207'>increasing weakening</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='208'>index</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='209'>infertility</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='210'>inflamed eye</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='211'>insomnia</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='212'>intellectual disability</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='213'>involuntary muscle movement</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='214'>involuntary sleep episode</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='215'>irregular edge</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='216'>irregular menstrual period</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='217'>irregular menstruation</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='218'>irritability</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='219'>irritation</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='220'>itchiness</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='221'>itching</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='222'>itching genital area</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='223'>itching result trouble sleeping</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='224'>itchy</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='225'>itchy blister</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='226'>itchy bump</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='227'>itchy ear</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='228'>jaundice</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='229'>jaw</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='230'>jerky body movement</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='231'>joint bone pain</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='232'>joint swelling</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='233'>large amount watery diarrhea</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='234'>large forehead</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='235'>large lymph node</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='236'>large lymph node around neck</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='237'>leg swelling</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='238'>light sensitivity</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='239'>little pain</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='240'>localized breast pain redness</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='241'>long term fatigue</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='242'>loose frequent bowel movement</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='243'>loose teeth</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='244'>loss appetite</label><br>
+            </div>
+            <div class="col-md-6">
+                <label><input type='checkbox' name='symptoms[]' value='245'>loss consciousness may sweating</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='246'>loss hair part head body</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='247'>loss lot blood childbirth</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='248'>loss smell</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='249'>loss vision one side</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='250'>low blood pressure</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='251'>low energy</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='252'>low red blood cell</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='253'>lower abdominal pain</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='254'>lump breast</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='255'>lump bump neck</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='256'>maculopapular rash</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='257'>malabsorption</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='258'>may symptom</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='259'>memory problem</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='260'>mental ability</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='261'>mental change</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='262'>mid dilated pupil</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='263'>middle finger</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='264'>mild moderate intellectual
+                    disability</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='265'>minimal</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='266'>missed period</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='267'>mole increasing size</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='268'>mood change</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='269'>mood swing</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='270'>mouth sore</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='271'>mouth ulcer</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='272'>multiple painful joint</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='273'>muscle ache difficulty breathing</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='274'>muscle cramp</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='275'>muscle joint pain</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='276'>muscle spasm</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='277'>muscle weakness</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='278'>muscle weakness beginning foot
+                    hand</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='279'>muscle weakness resulting inability
+                    move</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='280'>muscular pain</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='281'>myalgia</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='282'>nausea</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='283'>nausea vomiting</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='284'>nausea vomiting weight loss dehydration
+                    occur</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='285'>nearly undetectable spell</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='286'>nearsightedness</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='287'>neck</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='288'>neck stiffness</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='289'>needing urinate often</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='290'>newly inverted nipple</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='291'>non itchy skin ulcer</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='292'>non painful cyst middle eyelid</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='293'>nonaligned eye</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='294'>none non specific</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='295'>numbness</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='296'>object different size eye</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='297'>one eye myopia eye hyperopia</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='298'>opening upper lip may extend nose
+                    palate</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='299'>others</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='300'>overlying redness</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='301'>pain along inside edge shinbone</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='302'>pain area</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='303'>pain around ear</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='304'>pain doesnt go shingle</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='305'>pain going leg lower back</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='306'>pain sex</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='307'>pain specific bone</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='308'>painful</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='309'>painful blister lower leg</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='310'>painful heavy period</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='311'>painful joint base big toe</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='312'>painful rash occurring stripe</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='313'>painful skin</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='314'>painful swelling parotid gland</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='315'>painful swollen joint</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='316'>painful tender outer part elbow</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='317'>painless</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='318'>painless lump</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='319'>pale color</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='320'>pale skin</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='321'>pallor</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='322'>paralysis</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='323'>patch thick</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='324'>patch white skin</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='325'>perform certain routine
+                    repeatedly</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='326'>period vigorous shaking</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='327'>persistent rough white red patch mouth
+                    lasting longer week</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='328'>photophobia</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='329'>physical disability</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='330'>pimple like rash</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='331'>pinkish</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='332'>playing video game extremely long period
+                    time</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='333'>poor ability tolerate cold</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='334'>poor appetite</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='335'>poor coordination</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='336'>poor tolerance heat</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='337'>post nasal drip</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='338'>problem language</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='339'>problem mood</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='340'>problem understanding speaking</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='341'>problem vision</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='342'>profuse sweating</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='343'>progressive muscle weakness</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='344'>prolonged</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='345'>prolonged cough</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='346'>prominent</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='347'>protein urine</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='348'>psychosis</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='349'>pulsing pain</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='350'>purple colored skin affected
+                    area</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='351'>purple colored skin lesion</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='352'>raised</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='353'>raised red blue lesion</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='354'>random outburst laughter</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='355'>rapid breathing</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='356'>recurring episode wheezing</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='357'>red</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='358'>red eye</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='359'>red purple darker skin</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='360'>red rash</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='361'>red scaly patch skin breast</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='362'>red skin</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='363'>red spot white eye</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='364'>red without blister</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='365'>reddish eye</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='366'>redness</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='367'>redness eye</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='368'>repetitive behavior</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='369'>restricted interest</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='370'>right lower abdominal pain</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='371'>rigidity</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='372'>ringing ear heartbeat</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='373'>rough skin growth</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='374'>runny nose</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='375'>scaly patch skin</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='376'>scratchiness</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='377'>seizure</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='378'>sensitivity smell</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='379'>sensitivity sound</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='380'>severe intellectual disability</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='381'>severe pain</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='382'>severe pain lower back abdomen</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='383'>shakiness</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='384'>shaking</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='385'>sharp chest pain</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='386'>shivering</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='387'>shock like pain one side face last second
+                    minute</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='388'>short height</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='389'>short stature</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='390'>shortness breath</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='391'>sit</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='392'>skin blister</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='393'>skin breakdown</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='394'>skin lesion generally pink color project
+                    outward</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='395'>skin peeling</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='396'>sleep problem</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='397'>sleeping problem</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='398'>slowness movement</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='399'>small</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='400'>small blister break open form painful
+                    ulcer</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='401'>small blister surrounding
+                    swelling</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='402'>small face</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='403'>small head</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='404'>small jaw</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='405'>sneezing</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='406'>social withdrawal</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='407'>sometimes symptom</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='408'>sore arm leg</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='409'>sore throat</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='410'>sore wrist</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='411'>stiff muscle</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='412'>stiff neck</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='413'>stiffness</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='414'>stomach pain</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='415'>stroke</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='416'>stuffy itchy nose</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='417'>stunted growth</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='418'>sudden</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='419'>sudden loss muscle strength</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='420'>sweat</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='421'>swell pain near tumor</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='422'>swelling</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='423'>swelling abdomen</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='424'>swelling around eye</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='425'>swelling hand foot</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='426'>swollen</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='427'>swollen hand foot</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='428'>swollen lymph node</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='429'>taste acid</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='430'>temporary fleeting vision one
+                    eye</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='431'>tender breast</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='432'>testicular pain</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='433'>tingling</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='434'>tingling hand foot</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='435'>tingling thumb</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='436'>tiredness</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='437'>tooth loss</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='438'>tremor</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='439'>triangular tissue growth cornea</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='440'>trouble breathing nose</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='441'>trouble coordination</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='442'>trouble opening mouth</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='443'>trouble seeing</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='444'>trouble sensation</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='445'>trouble sleeping</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='446'>trouble social interaction</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='447'>trouble speaking</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='448'>trouble swallowing</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='449'>trouble talking</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='450'>trouble walking</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='451'>typically none</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='452'>ulcer</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='453'>ulcer around genitals</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='454'>ulceration</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='455'>unable move</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='456'>unexplained weight loss</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='457'>unintended weight loss</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='458'>unpleasant smell present breath</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='459'>upper abdominal pain</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='460'>usage resulting problem</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='461'>vaginal bleeding</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='462'>vaginal bleeding without pain</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='463'>vaginal discharge</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='464'>variable</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='465'>vary depending part brain
+                    involved</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='466'>varying degree muscle weakness</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='467'>velvety skin</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='468'>vision loss</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='469'>vomiting</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='470'>warm</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='471'>wart</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='472'>watery eye</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='473'>weak grip</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='474'>weak muscle</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='475'>weakness limb</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='476'>weakness numbness affected leg</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='477'>webbed neck</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='478'>weight gain</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='479'>wet</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='480'>wheezing</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='481'>white patch vaginal discharge</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='482'>widespread pain</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='483'>withdrawal occurring stopping</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='484'>worrying</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='485'>yellow skin</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='486'>yellowish coloration skin white
+                    eye</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='487'>yellowish skin</label><br>
+                <label><input type='checkbox' name='symptoms[]' value='488'>yellowish skin crust</label><br>
+            </div>
+        </div>
+        <button type="submit">Predict</button>
+    </form>
+    <div id="result"></div>
+    <script src="{{ url_for('static', filename='disease.js') }}"></script>
+
+    <!-- <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyAlV4nMJVTFD030Nl2etkmffW-HhL3UHDg",
+          authDomain: "clicker-8eea7.firebaseapp.com",
+          projectId: "clicker-8eea7",
+          storageBucket: "clicker-8eea7.appspot.com",
+          messagingSenderId: "353336672590",
+          appId: "1:353336672590:web:0abff7fd0add7e82f49e1f",
+          measurementId: "G-8NM617G7L9"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script> -->
+</body>
+
+</html>

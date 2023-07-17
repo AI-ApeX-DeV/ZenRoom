@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Diet Plan Generator</title>
+    <link rel="stylesheet" href="static/diet.css">
+</head>
+
+<body>
+    <video id="video-background" autoplay muted loop>
+        <source src="{{ url_for('static', filename='video.mp4') }}" type="video/mp4">
+        <!-- Add additional <source> tags with different video formats (e.g., WebM, Ogg) for cross-browser compatibility -->
+    </video>
+    <h1>Diet Plan Generator</h1>
+    <div class="wrapper">
+        <div class="left-box">
+            <div class="content">
+                <h2> How we Generate the Diet</h2>
+                <p>We generate highly personalized diet plans based on various factor : <br> 1: including your age => to
+                    make sure you get the optimal calories<br> 2: gender => to ensure your energy intake<br>3: location
+                    => to ensure availability of food items in your locality<br> 4: Health conditions => to ensure that
+                    you have a diet that suits your body and is benefitial for your health<br><br>Our team takes into
+                    account the values entered on the dashboard from the previous day to create a diet plan that is
+                    tailored specifically to your needs and preferences.</p>
+
+            </div>
+        </div>
+        <div class="container">
+            <form action="/diet" method="post">
+                <label for="age">Age:</label>
+                <input type="text" id="age" name="age" placeholder="Enter your age" required><br>
+
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select your gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select><br>
+
+                <label for="disease">Health Condition:</label>
+                <input type="text" id="disease" name="disease" placeholder="Enter your health condition"><br>
+
+                <label for="calories">Daily Calorie Intake:</label>
+                <input type="text" id="calories" name="calories" placeholder="Enter your daily calorie intake"
+                    required><br>
+
+                <label for="location">Your Location :</label>
+                <input type="text" id="location" name="location" placeholder="Enter your Location" required><br>
+
+                <input type="submit" value="Generate Diet Plan">
+            </form>
+        </div>
+
+        <div>
+            {% if diet_plan %}
+            <h2>Diet Plan:</h2>
+            <p>{{ diet_plan }}</p>
+            {% endif %}
+        </div>
+        <div class="right-box">
+            <div class="content">
+                <h3>Diet Tips for Mental Health</h3>
+                <ul>
+                    <li>Focus on whole foods, such as fruits, vegetables, whole grains, and lean protein. These foods
+                        contain the nutrients our brains need to function properly.</li>
+                    <li>Limit processed foods, which are often high in sugar, salt, and unhealthy fats. These foods can
+                        negatively impact our mental health and increase the risk of depression.</li>
+                    <li>Consume omega-3 fatty acids, which are found in nuts, seeds, and some plant oils. Omega-3s have
+                        been shown to improve mood and reduce inflammation in the brain.</li>
+                    <li>Eat more probiotics, which are beneficial bacteria that live in our gut. Probiotics can help
+                        with digestion and also influence our mood and mental health. You can find probiotics in
+                        fermented foods like yogurt, kefir, sauerkraut, kimchi.</li>
+                    <li>Stay hydrated by drinking enough water and other fluids. Dehydration can affect our mood, energy
+                        level, and ability to concentrate. Avoid drinking too much caffeine or alcohol, as they can
+                        cause anxiety and sleep problems.</li>
+                </ul>
+                <ul>
+                    <li>Eat a variety of fruits, vegetables, and foods rich in omega-3 fatty acids, pre- and probiotics,
+                        vitamins, minerals, and fiber to support mental health by lowering stress, reducing depression,
+                        and fostering well-being.</li>
+                    <li>Choose whole-food diets heavy on the fruits, vegetables, and unprocessed protein to lift your
+                        moods and protect you from depression.</li>
+                    <li>Avoid ultra-processed foods, sugar, and fast food that may harm mental health by causing
+                        inflammation and mood swings.</li>
+                    <li>Consume complex carbohydrates, such as those found in fruits, vegetables, whole grains, and
+                        legumes, to provide a stable and consistent flow of fuel to your brain.</li>
+                    <li>Eat foods that contain amino acids, the building blocks of protein, to help your brain produce
+                        neurotransmitters that regulate your emotions. Some examples are nuts, seeds, soy products, and
+                        dairy products.</li>
+                    <li>Balance your intake of omega-3 and omega-6 fatty acids, which are essential for your brain
+                        health. Some sources of omega-3 fatty acids are flaxseeds, walnuts, and chia seeds. Some sources
+                        of omega-6 fatty acids are vegetable oils (such as corn, soybean, and sunflower oil), nuts,
+                        seeds.</li>
+                    <li>Follow the Mediterranean diet for depression prevention and treatment. This diet emphasizes
+                        fruits, vegetables, whole grains, legumes, nuts, olive oil, and moderate amounts of wine.</li>
+                    <li>Eat a nutrient-dense diet for mood enhancement. This diet includes foods that are rich in
+                        antioxidants (such as berries), folate (such as leafy greens), iron , magnesium (such as dark
+                        chocolate), selenium (such as Brazil nuts), vitamin B12 , vitamin D (such as mushrooms), and
+                        zinc .</li>
+                    <li>Reduce your intake of sugar, caffeine, and alcohol for anxiety relief. These substances can
+                        trigger or worsen anxiety symptoms by affecting your blood sugar levels and neurotransmitter
+                        balance.</li>
+                    <li>Drink plenty of water to stay hydrated and prevent dehydration-induced mood changes. Aim for at
+                        least eight glasses of water per day.</li>
+                    <li>Snack on healthy foods between meals to keep your blood sugar levels stable and avoid
+                        hunger-induced irritability. Some examples are nuts, seeds, dried fruits, yogurt, cheese cubes,
+                        or hummus with carrot sticks.</li>
+                    <li>Eat regular meals at consistent times to maintain a healthy circadian rhythm and support your
+                        sleep quality. Poor sleep can negatively affect your mental health.</li>
+                    <li>Limit your intake of artificial sweeteners (such as aspartame), food additives (such as MSG),
+                        and preservatives (such as nitrates) that may have adverse effects on your brain function and
+                        mood5. Read food labels carefully and opt for natural or organic products whenever possible.
+                    </li>
+                    <li>Include spices and herbs in your cooking to enhance the flavor and nutritional value of your
+                        meals. Some spices and herbs that have been shown to have beneficial effects on mental health
+                        are turmeric (anti-inflammatory), saffron (antidepressant), cinnamon (blood sugar regulator),
+                        ginger (anti-nausea), rosemary (memory booster), basil (stress reducer), and lavender
+                        (relaxant).</li>
+                    <li>Try fermented foods (such as yogurt, kefir, sauerkraut).
+            </div>
+        </div>
+</body>
+
+</html>

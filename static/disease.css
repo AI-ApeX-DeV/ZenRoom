@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+
+body {
+  background-image: url('https://static.vecteezy.com/system/resources/thumbnails/006/712/985/small/abstract-health-medical-science-healthcare-icon-digital-technology-science-concept-modern-innovation-treatment-medicine-on-hi-tech-future-blue-background-for-wallpaper-template-web-design-vector.jpg');
+  font-family: 'Nunito', sans-serif;
+}
+h1{
+  margin: 17px 0px 4px 40%;
+}
+img{
+  margin: 15px -24px 10px 55px;
+  width: 50px;
+  height: 50px;
+}
+.newb {
+  display: flex;
+  color: white;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #0f946c;
+  margin-bottom: 30px;
+  height: 80px;
+  background-color: rgba(77, 66, 66, 0.7); 
+}
+
+.form-group {
+  width: 70%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  color:white;
+  border-radius: 10px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+  background-color: rgba(77, 66, 66, 0.5); 
+}
+
+label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+input[type="checkbox"] {
+  margin-right: 20px;
+  margin-left: 25px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="checkbox"]:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"] {
+  width: 40%;
+  text-align: center;
+  display: block;
+  margin: 0px auto;
+  margin-top: 20px;
+  background-color: #20c997;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #17a580;
+}
+
+#result {
+  display: flex;
+  margin: 20px auto;
+  word-wrap: break-word;
+  width: 70%;
+  background-image: url('path_to_background_image.jpg');
+  background-color: #efebeb;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  background-color: rgba(77, 66, 66, 0.7); 
+  font-size: 18px;
+  border-color: black;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+
+}
+
+.additional-info li {
+  margin-bottom: 5px;
+  line-height: 1.5em;
+  text-align: left;
+}
+
+.additional-info ul {
+  list-style-position: outside;
+}
+
+.highlight {
+  background-color: rgb(9, 9, 9);  /* lighter shade of yellow */
+  border-radius: 4px;
+}
+
+#search-bar {
+  display: flex;
+  margin: 0 auto;
+  padding: 10px;
+  padding-left: 25px;
+  margin-bottom: 25px;
+  font-size: 18px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  width: 50%;
+  max-width: 500px;
+}
+
+#search-bar::placeholder {
+  text-align: center;
+}

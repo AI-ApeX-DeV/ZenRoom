@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Community Section</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='community.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="messages">
+            <h2>{{ section }}</h2>
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>No messages yet.</p>
+            {% endif %}
+        </div>
+        <div class="form-container">
+            <form action="/{{ section }}" method="post">
+                <textarea name="message" placeholder="Write your message..." required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

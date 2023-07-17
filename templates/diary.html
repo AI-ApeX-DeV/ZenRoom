@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='diary.css') }}">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:300,300i,900,900i">
+{% endblock head %}
+
+{% block content %}
+<form id="entryForm" class="entry_form" action="" method="POST">
+    {{ form.hidden_tag() }}
+    <label for="entry-title" class="journal-label">Enter Title</label>
+    {{ form.title(id="entry-title", class="entry-text-title", placeholder="Name of entry ✏️") }}
+
+    <label for="entry" class="journal-label">Today's Entry</label>
+    {{ form.note(id="entry", class="entry-text-box", placeholder="What's on your mind today? 💭") }}
+    {{ form.submit(class="btn-main entry-submit-btn") }}
+</form>
+
+<section class="section sectionEntryResults" id="entryResultsSection">
+    <div class="container">
+        <div class="old-entry-title">Previous Entries</div>
+        <div class="container-cards">
+            {% for entry in entries %}
+            <div class="card">
+                <span class="entryTitle">{{ entry.title }}<span class="dull">{{ entry.date }}</span></span>
+                <span class="entryNote">{{ entry.note }}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger chat-title="The ZenRoom" agent-id="65d436db-fdd4-486e-90ca-037e12a44af2"
+    language-code="en"></df-messenger>
+<script src="chat.js"></script>
+{% endblock content %}

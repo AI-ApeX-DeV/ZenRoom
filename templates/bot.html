@@ -1,0 +1,101 @@
+{% extends 'layout.html' %}
+
+<html>
+{% block head %}<!-- meta related -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!-- vendor css & style files -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300|Open+Sans:300|Oxygen|Material+Icons"
+    rel="stylesheet" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+
+<!-- custom css -->
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='main.css')}}" />
+{% endblock head %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row padded_row">
+        <!-- right side content -->
+        <div class="col-md-7">
+            <div class="chat_window">
+                <div class="top_menu">
+                    <div class="title">ZenRoom</div>
+                </div>
+
+                <!-- dynamically rendered -->
+                <ul class="messages"></ul>
+
+                <!-- input -->
+                <div class="bottom_wrapper">
+                    <input id="msg_input" placeholder="Say Hi to begin chat..." />
+                    <div id="send_button" class="app_button_1">Send</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- left side content -->
+        <div class="col-md-5">
+            <div class="chat_window">
+                <div class="top_menu">
+                    <div class="title">HELP</div>
+                </div>
+
+                <!-- help container -->
+                <div class="panel-group" id="accordion">
+                    <!-- help - 1 -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                                    href="#collapse1">HEALTH TIPS FOR A GOOD LIFE</a>
+                            </h4>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                Exercise regularly: Exercise has been shown to release endorphins, which are
+                                natural mood enhancers. Regular exercise can also improve sleep, reduce stress,
+                                and increase self-esteem.<br /><br />
+                                Practice mindfulness meditation: Mindfulness meditation involves focusing on the
+                                present moment and accepting your thoughts and feelings without judgment. It has
+                                been shown to reduce anxiety and depression and improve overall well-being.<br /><br />
+                                Get enough sleep: Sleep is essential for good mental health. It helps to
+                                regulate emotions and improve cognitive functioning. Aim for 7-9 hours of sleep
+                                per night.<br /><br />
+                                Connect with others: Social support is important for good mental health. Make
+                                time for friends and family, join clubs or organizations, or volunteer in your
+                                community.<br /><br />
+                                Eat a healthy diet: A healthy diet can help improve mood and overall well-being.
+                                Include plenty of fruits, vegetables, whole grains, and lean proteins in your
+                                diet.<br /><br />
+                                Manage stress: Chronic stress can lead to anxiety and depression. Find healthy
+                                ways to manage stress such as deep breathing, yoga, or spending time in
+                                nature.<br /><br />
+                                Practice self-care: Taking care of yourself is important for good mental health.
+                                Set aside time for activities you enjoy, take a relaxing bath, or read a
+                                book.<br /><br />
+                                Remember, mental health is just as important as physical health. Prioritizing
+                                your mental well-being can have a positive impact on all aspects of your life.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- vendor script files -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- custom scripts -->
+<script src="{{url_for('static', filename='main.js') }}"></script>
+<a href="{{url_for('map')}}"
+    style="font-size:5vh;padding: 10vh;border-top: 2px solid #000;width: 100%; position: absolute; text-decoration: none;">Still
+    struggling? Visit nearest therapist</a>
+{% endblock content %}

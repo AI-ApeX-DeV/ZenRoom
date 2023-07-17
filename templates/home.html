@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Community Section</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='community.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/simplebar@5.3.0/dist/simplebar.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/simplebar@5.3.0/dist/simplebar.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.section-link').click(function (e) {
+                e.preventDefault();
+                var section = $(this).data('section');
+                $('.section-link').removeClass('active');
+                $(this).addClass('active');
+                loadSectionMessages(section);
+            });
+
+            $('form').submit(function (e) {
+                e.preventDefault();
+                var section = $('.section-link.active').data('section');
+                var username = $('input[name="username"]').val();
+                var message = $('textarea[name="message"]').val();
+                $('input[name="username"]').val('');
+                $('textarea[name="message"]').val('');
+                addMessage(section, username, message);
+            });
+
+            function loadSectionMessages(section) {
+                $.ajax({
+                    url: '/section?section=' + section,
+                    type: 'GET',
+                    success: function (response) {
+                        var messages = response.messages;
+                        var messagesHtml = '';
+                        for (var i = 0; i < messages.length; i++) {
+                            messagesHtml += '<div class="message">' +
+                                '<div class="message-header">' +
+                                '<div class="username">' + messages[i].username + '</div>' +
+                                '<div class="timestamp">' + messages[i].timestamp + '</div>' +
+                                '</div>' +
+                                '<div class="message-content">' + messages[i].message + '</div>' +
+                                '</div>';
+                        }
+                        $('.messages').html(messagesHtml);
+                        // Initialize Simplebar scrollbar
+                        new SimpleBar($('.messages')[0]);
+                    }
+                });
+            }
+
+            function addMessage(section, username, message) {
+                $.ajax({
+                    url: '/section?section=' + section,
+                    type: 'POST',
+                    data: {
+                        username: username,
+                        message: message
+                    },
+                    success: function (response) {
+                        var messages = response.messages;
+                        var messagesHtml = '';
+                        for (var i = 0; i < messages.length; i++) {
+                            messagesHtml += '<div class="message">' +
+                                '<div class="message-header">' +
+                                '<div class="username">' + messages[i].username + '</div>' +
+                                '<div class="timestamp">' + messages[i].timestamp + '</div>' +
+                                '</div>' +
+                                '<div class="message-content">' + messages[i].message + '</div>' +
+                                '</div>';
+                        }
+                        $('.messages').html(messagesHtml);
+                        // Initialize Simplebar scrollbar
+                        new SimpleBar($('.messages')[0]);
+                    }
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sections">
+            <h2>Sections</h2>
+            <ul>
+                {% for section in sections %}
+                <li><a href="#" class="section-link" data-section="{{ section }}">{{ section|replace('_', ' ')|title
+                        }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="section-container">
+            <h2>Welcome to the Community Section</h2>
+            <p>Please select a section from the left to view the messages.</p>
+            <div class="messages" data-simplebar>
+            </div>
+            <div class="form-container">
+                <form>
+
+                    <textarea name="message" placeholder="Type your message"></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

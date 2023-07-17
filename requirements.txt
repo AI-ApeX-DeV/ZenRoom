@@ -1,0 +1,13 @@
+Flask
+Flask_Login
+Flask_WTF
+keras
+numpy
+openai
+pandas
+Pyrebase4
+python-dotenv
+WTForms
+tensorflow
+datetime
+gunicorn

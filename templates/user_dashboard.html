@@ -1,0 +1,997 @@
+<html>
+
+<head>
+    <style>
+        /* Style the navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #333;
+            color: white;
+        }
+
+        /* Style the navbar links */
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            padding: 10px;
+        }
+
+        /* Style the active link */
+        .navbar a.active {
+            background-color: #4CAF50;
+        }
+
+        /* Style the sections */
+        .section {
+            height: 500px;
+            width: 200px;
+            padding: 20px;
+        }
+
+        /* Add some margin to the sections */
+        .section+.section {
+            margin-top: 50px;
+        }
+
+        /* Style the section titles */
+        .section h1 {
+            font-size: 36px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Create the navbar with 3 options -->
+    <div class="navbar">
+        <a href="{{url_for('home')}}"><img src="{{ url_for('static', filename='homd.png') }}" height="20px" alt="img"></a>
+        <a href="#sum_chart_div2" onclick="scrollToSection('sum_chart_div2')">Mental Fitness Curve</a>
+        <a href="#heart_rate_chart_div2" onclick="scrollToSection('heart_rate_chart_div2')">Heart Rate</a>
+        <a href="#chart_div2" onclick="scrollToSection('chart_div2')">Sleep</a>
+        <a href="#soc_int_chart_div2" onclick="scrollToSection('soc_int_chart_div2')">Social Interation</a>
+        <a href="#phys_act_chart_div2" onclick="scrollToSection('phys_act_chart_div2')">Physical Activity</a>
+        <a href="#stress_chart_div2" onclick="scrollToSection('strstress_chart_divess2')">Stress</a>
+        <a href="#mood_chart_div2" onclick="scrollToSection('mood_chart_div2')">Mood</a>
+        <button id="edit_button">EDIT</button>
+
+
+    </div>
+
+    <!-- Create the sections -->
+    <div id="sum_chart_div" style="position: absolute; left: 0px; top: 50px; width: 800px; height: 400px;"
+        class="chart-container">
+        <h1>Summary Chart</h1>
+        <p></p>
+    </div>
+    <div id="sum_chart_div2" style="position: absolute; left: 0px; top: 900px; width: 800px; height: 400px;"
+        class="chart-container">
+        <h1>Summary Chart</h1>
+        <p></p>
+    </div>
+
+    <!-- Create the sections -->
+    <div id="heart_rate_chart_div" style="position: absolute; right: 50px; top: 300px; width: 400px; height: 200px;"
+        class="chart-container">
+        <h1>Heart Rate curve</h1>
+        <p></p>
+    </div>
+
+    <div id="heart_rate_chart_div2" style="position: absolute; left: 0px; top: 2300px; width: 400px; height: 200px;"
+        class="chart-container">
+        <h1>Heart Rate curve</h1>
+        <p></p>
+    </div>
+
+    <div id="chart_div" style="position: absolute; right: 50px; top: 50px; width: 400px; height: 200px;"
+        class="chart-container">
+        <h1>Sleep Pattern</h1>
+
+    </div>
+
+    <div id="chart_div2" style="position: absolute; left: 0px; top: 3100px; width: 400px; height: 200px;"
+        class="chart-container">
+        <h1>Sleep Pattern</h1>
+        <p></p>
+    </div>
+
+    <div id="soc_int_chart_div" style="position: absolute; right:50px; top: 550; width: 400px; height: 200px;"
+        class="chart-container">
+        <h1>Social Interation curve</h1>
+
+    </div>
+
+    <div id="soc_int_chart_div2" style="position: absolute; left: 0px; top: 3900px; width: 400px; height: 200px;"
+        class="chart-container">
+        <h1>Social Interation curve</h1>
+        <p></p>
+    </div>
+
+
+    <div id="phys_act_chart_div" style="position: absolute; right: 450px; top: 550px; width: 400px; height: 200px;"
+        class="chart-container">
+        <h1>Physical curve</h1>
+
+    </div>
+
+    <div id="phys_act_chart_div2" style="position: absolute; left: 0px; top: 4700px; width: 400px; height: 200px;"
+        class="chart-container">
+        <h1>Physical curve</h1>
+        <p></p>
+    </div>
+
+
+    <div id="stress_chart_div" style="position: absolute; right: 450px; top: 50px; width: 400px; height: 200px;"
+        class="chart-container">
+        <h1>Stress curve</h1>
+
+    </div>
+
+    <div id="stress_chart_div2" style="position: absolute; left: 0px; top: 5500px; width: 400px; height: 200px;"
+        class="chart-container">
+        <h1>Stress Curve</h1>
+        <p></p>
+    </div>
+
+
+    <div id="mood_chart_div" style="position: absolute; right: 450px; top: 300px; width: 400px; height: 200px;"
+        class="chart-container">
+        <h1>Mood curve</h1>
+    </div>
+
+    <div id="mood_chart_div2" style="position: absolute; left: 0px; top: 6300px; width: 400px; height: 200px;"
+        class="chart-container">
+        <h1>Mood Curve</h1>
+        <p></p>
+    </div>
+
+
+    <script>
+        // Define a function to scroll to the given section
+        function scrollToSection(id) {
+            // Get the element with the given id
+            var element = document.getElementById(id);
+
+            // Scroll to the element with smooth behavior
+            element.scrollIntoView({ behavior: 'smooth' });
+
+            // Remove the active class from all links
+            var links = document.querySelectorAll('.navbar a');
+
+            for (var i = 0; i < links.length; i++) {
+                links[i].classList.remove('active');
+            }
+
+            // Add the active class to the clicked link
+            var link = document.querySelector('.navbar a[href="#' + id + '"]');
+
+            link.classList.add('active');
+        }
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        // Initialize Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAvYvSqBoQzCUDK2oloq79JhPJGTw1DIUk",
+            authDomain: "dashboard-50078.firebaseapp.com",
+            databaseURL: "https://dashboard-50078-default-rtdb.firebaseio.com",
+            projectId: "dashboard-50078",
+            storageBucket: "dashboard-50078.appspot.com",
+            messagingSenderId: "475329238769",
+            appId: "1:475329238769:web:7ccdb82a47b7c06ea27b50",
+            measurementId: "G-L0PKH3JBR3"
+        };
+        firebase.initializeApp(firebaseConfig);
+        var database = firebase.database();
+
+        google.charts.load('current', { packages: ['corechart'] });
+        google.charts.setOnLoadCallback(initialize);
+
+        var sleepData;
+        var heartRateData;
+        var username;
+        var user;
+        var social_interaction;
+        var mood;
+        var physical_activity;
+        var stress_level;
+        window.summ = 0;
+        var date;
+        var hour;
+        var minutes;
+        var lastttime;
+        var lastExecutedTime;
+
+        function initialize() {
+            var input = document.getElementById('username_input');
+            user = input;
+            input.addEventListener('change', function (e) {
+                username = e.target.value;
+                loadSumData();
+                loadData();
+                loadHeartRateData();
+                loadMoodData();
+                loadSocIntData();
+                loadStressData();
+                loadPhysActData();
+
+
+            });
+            sum = new google.visualization.DataTable();
+            sum.addColumn('number', 'Index');
+            sum.addColumn('number', 'sum');
+
+            sleepData = new google.visualization.DataTable();
+            sleepData.addColumn('number', 'Index');
+            sleepData.addColumn('number', 'Sleep');
+
+            heartRateData = new google.visualization.DataTable();
+            heartRateData.addColumn('number', 'Day');
+            heartRateData.addColumn('number', 'Heart Rate');
+
+            mood = new google.visualization.DataTable();
+            mood.addColumn('number', 'Index');
+            mood.addColumn('number', 'mood');
+
+            soc_int = new google.visualization.DataTable();
+            soc_int.addColumn('number', 'Index');
+            soc_int.addColumn('number', 'soc_int');
+
+            stress = new google.visualization.DataTable();
+            stress.addColumn('number', 'Index');
+            stress.addColumn('number', 'stress');
+
+            phys_act = new google.visualization.DataTable();
+            phys_act.addColumn('number', 'Index');
+            phys_act.addColumn('number', 'phys_act');
+
+
+
+            document.getElementById('append_sum_button').addEventListener('click', function () {
+                var username = parseFloat(document.getElementById('username_input').value);
+                var sleepValue11 = parseFloat(document.getElementById('sleep_value_input').value);
+                var heartRateValue11 = parseFloat(document.getElementById('heart_rate_value_input').value);
+                var moodValue11 = parseFloat(document.getElementById('mood_value_input').value);
+                var socIntValue11 = parseFloat(document.getElementById('soc_int_value_input').value);
+                var stressValue11 = parseFloat(document.getElementById('stress_value_input').value);
+                var physActValue11 = parseFloat(document.getElementById('phys_act_value_input').value);
+
+                if (isNaN(sleepValue11) || isNaN(heartRateValue11) || isNaN(moodValue11) || isNaN(socIntValue11) || isNaN(stressValue11) || isNaN(physActValue11)) {
+                    alert("Please enter all values, it is necessary for us to evaluate the mental fitness value");
+                    return;
+                }
+                else {
+                    user = document.getElementById('username_input').value;
+                    var ttime = database.ref('userinfo/' + user + '/time').once("value").then(function (snapshot) {
+                        lastExecutedTime = snapshot.val();
+                        console.log(lastExecutedTime);
+
+                        if (lastExecutedTime == 0) {
+                            console.log("Hellooo");
+
+                            lastExecutedTime = new Date().getTime();
+                            date = new Date(lastExecutedTime);
+                            hour = date.getHours();
+                            minutes = date.getMinutes();
+                            database.ref('userinfo/' + user).set({
+                                hour: hour,
+                                minute: minutes,
+                                time: lastExecutedTime
+                            });
+                        }
+                        if ((new Date().getTime() - lastExecutedTime) < (24 * 60 * 60 * 1000)) {
+
+
+                            alert("Function already entered for today at : " + hours + ":" + minutes + ", you can enter values again tomorrow");
+                            return;
+                        }
+
+                        if ((new Date().getTime() - lastExecutedTime) > (24 * 60 * 60 * 1000)) {
+
+
+                            appendSleepElement(sleepValue11);
+
+                            appendHeartRateElement(heartRateValue11);
+
+                            appendMoodElement(moodValue11);
+
+                            appendSocIntElement(socIntValue11);
+
+                            appendStressElement(stressValue11);
+
+                            appendPhysActElement(physActValue11);
+
+                            summ = (2 * sleepValue11) + (2 * heartRateValue11) + (3 * moodValue11) + socIntValue11 + (4 * stressValue11) + physActValue11;
+
+                            appendSumElement(summ);
+                            lastttime = new Date().getTime();
+                            date = new Date(lastttime);
+                            hours = date.getHours();
+                            minutes = date.getMinutes();
+
+                            database.ref('userinfo/' + user).update({ hour: hours, minute: minutes, time: lastttime })
+
+
+                            alert("Function successfully entered today at " + hours + ":" + minutes + ", you can enter values again tomorrow");
+                            return;
+                        }
+                    });
+
+                }
+            });
+
+
+        }
+        function appendSumElement(value) {
+            var index = sum.getNumberOfRows() + 1;
+            sum.addRow([index, value]);
+            saveSumData();
+            drawSumChart();
+        }
+
+
+        function appendSleepElement(value) {
+            var index = sleepData.getNumberOfRows();
+            sleepData.addRow([index, value]);
+            saveSleepData();
+            drawSleepChart();
+        }
+
+        function appendHeartRateElement(value) {
+            var index = heartRateData.getNumberOfRows() + 1;
+            heartRateData.addRow([index, value]);
+            saveHeartRateData();
+            drawHeartRateChart();
+        }
+
+        function appendMoodElement(value) {
+            var index = mood.getNumberOfRows() + 1;
+            mood.addRow([index, value]);
+            saveMoodData();
+            drawMoodChart();
+        }
+
+        function appendSocIntElement(value) {
+            var index = soc_int.getNumberOfRows() + 1;
+            soc_int.addRow([index, value]);
+            saveSocIntData();
+            drawSocIntChart();
+        }
+
+        function appendStressElement(value) {
+            var index = stress.getNumberOfRows() + 1;
+            stress.addRow([index, value]);
+            saveStressData();
+            drawStressChart();
+        }
+
+        function appendPhysActElement(value) {
+            var index = phys_act.getNumberOfRows() + 1;
+            phys_act.addRow([index, value]);
+            savePhysActData();
+            drawPhysActChart();
+        }
+
+
+        function saveSleepData() {
+            var sleepDataArr = [];
+            for (var i = 0; i < sleepData.getNumberOfRows(); i++) {
+                sleepDataArr.push(sleepData.getValue(i, 1));
+            }
+            database.ref('sleepData/' + username).set(sleepDataArr);
+        }
+
+        function saveHeartRateData() {
+            var heartRateDataArr = [];
+            for (var i = 0; i < heartRateData.getNumberOfRows(); i++) {
+                heartRateDataArr.push(heartRateData.getValue(i, 1));
+            }
+            database.ref('heartRateData/' + username).set(heartRateDataArr);
+        }
+
+        function saveMoodData() {
+            var moodDataArr = [];
+            for (var i = 0; i < mood.getNumberOfRows(); i++) {
+                moodDataArr.push(mood.getValue(i, 1));
+            }
+            database.ref('moodData/' + username).set(moodDataArr);
+        }
+
+        function saveSocIntData() {
+            var socIntDataArr = [];
+            for (var i = 0; i < soc_int.getNumberOfRows(); i++) {
+                socIntDataArr.push(soc_int.getValue(i, 1));
+            }
+            database.ref('socIntData/' + username).set(socIntDataArr);
+        }
+
+        function saveStressData() {
+            var stressDataArr = [];
+            for (var i = 0; i < stress.getNumberOfRows(); i++) {
+                stressDataArr.push(stress.getValue(i, 1));
+            }
+            database.ref('stressData/' + username).set(stressDataArr);
+        }
+
+        function savePhysActData() {
+            var physActDataArr = [];
+            for (var i = 0; i < phys_act.getNumberOfRows(); i++) {
+                physActDataArr.push(phys_act.getValue(i, 1));
+            }
+            database.ref('physActData/' + username).set(physActDataArr);
+        }
+
+        function saveSumData() {
+            var sumDataArr = [];
+            for (var i = 0; i < sum.getNumberOfRows(); i++) {
+                sumDataArr.push(sum.getValue(i, 1));
+            }
+            database.ref('sumData/' + username).set(sumDataArr);
+        }
+        function loadSumData() {
+            database.ref('sumData/' + username).once('value').then(function (snapshot) {
+                var sumDataArr = snapshot.val();
+                if (sumDataArr) {
+                    sum = new google.visualization.DataTable();
+                    sum.addColumn('number', 'Day');
+                    sum.addColumn('number', 'Sum');
+                    for (var i = 0; i < sumDataArr.length; i++) {
+                        var day = i + 1;
+                        sum.addRow([day, sumDataArr[i]]);
+                    }
+                } else {
+                    sum = new google.visualization.DataTable();
+                    sum.addColumn('number', 'Day');
+                    sum.addColumn('number', 'Sum');
+                }
+                drawSumChart();
+            });
+        }
+
+        function loadData() {
+            database.ref('sleepData/' + username).once('value').then(function (snapshot) {
+                var sleepDataArr = snapshot.val();
+                if (sleepDataArr) {
+                    sleepData = new google.visualization.DataTable();
+                    sleepData.addColumn('number', 'Index');
+                    sleepData.addColumn('number', 'Sleep');
+                    for (var i = 0; i < sleepDataArr.length; i++) {
+                        sleepData.addRow([i, sleepDataArr[i]]);
+                    }
+                } else {
+                    sleepData = new google.visualization.DataTable();
+                    sleepData.addColumn('number', 'Index');
+                    sleepData.addColumn('number', 'Sleep');
+                }
+                drawSleepChart();
+            });
+        }
+
+        function loadHeartRateData() {
+            database.ref('heartRateData/' + username).once('value').then(function (snapshot) {
+                var heartRateDataArr = snapshot.val();
+                if (heartRateDataArr) {
+                    heartRateData = new google.visualization.DataTable();
+                    heartRateData.addColumn('number', 'Day');
+                    heartRateData.addColumn('number', 'Heart Rate');
+                    for (var i = 0; i < heartRateDataArr.length; i++) {
+                        var day = i + 1;
+                        heartRateData.addRow([day, heartRateDataArr[i]]);
+                    }
+                } else {
+                    heartRateData = new google.visualization.DataTable();
+                    heartRateData.addColumn('number', 'Day');
+                    heartRateData.addColumn('number', 'Heart Rate');
+                }
+                drawHeartRateChart();
+            });
+        }
+
+        function loadMoodData() {
+            database.ref('moodData/' + username).once('value').then(function (snapshot) {
+                var moodDataArr = snapshot.val();
+                if (moodDataArr) {
+                    mood = new google.visualization.DataTable();
+                    mood.addColumn('number', 'Day');
+                    mood.addColumn('number', 'Mood');
+                    for (var i = 0; i < moodDataArr.length; i++) {
+                        var day = i + 1;
+                        mood.addRow([day, moodDataArr[i]]);
+                    }
+                } else {
+                    mood = new google.visualization.DataTable();
+                    mood.addColumn('number', 'Day');
+                    mood.addColumn('number', 'Mood');
+                }
+                drawMoodChart();
+            });
+        }
+
+        function loadSocIntData() {
+            database.ref('socIntData/' + username).once('value').then(function (snapshot) {
+                var socIntDataArr = snapshot.val();
+                if (socIntDataArr) {
+                    soc_int = new google.visualization.DataTable();
+                    soc_int.addColumn('number', 'Day');
+                    soc_int.addColumn('number', 'Social Interaction');
+                    for (var i = 0; i < socIntDataArr.length; i++) {
+                        var day = i + 1;
+                        soc_int.addRow([day, socIntDataArr[i]]);
+                    }
+                } else {
+                    soc_int = new google.visualization.DataTable();
+                    soc_int.addColumn('number', 'Day');
+                    soc_int.addColumn('number', 'Social Interaction');
+                }
+                drawSocIntChart();
+            });
+        }
+
+        function loadStressData() {
+            database.ref('stressData/' + username).once('value').then(function (snapshot) {
+                var stressDataArr = snapshot.val();
+                if (stressDataArr) {
+                    stress = new google.visualization.DataTable();
+                    stress.addColumn('number', 'Day');
+                    stress.addColumn('number', 'Stress');
+                    for (var i = 0; i < stressDataArr.length; i++) {
+                        var day = i + 1;
+                        stress.addRow([day, stressDataArr[i]]);
+                    }
+                } else {
+                    stress = new google.visualization.DataTable();
+                    stress.addColumn('number', 'Day');
+                    stress.addColumn('number', 'Stress');
+                }
+                drawStressChart();
+            });
+        }
+
+        function loadPhysActData() {
+            database.ref('physActData/' + username).once('value').then(function (snapshot) {
+                var physActDataArr = snapshot.val();
+                if (physActDataArr) {
+                    phys_act = new google.visualization.DataTable();
+                    phys_act.addColumn('number', 'Day');
+                    phys_act.addColumn('number', 'Physical Activity');
+                    for (var i = 0; i < physActDataArr.length; i++) {
+                        var day = i + 1;
+                        phys_act.addRow([day, physActDataArr[i]]);
+                    }
+                } else {
+                    phys_act = new google.visualization.DataTable();
+                    phys_act.addColumn('number', 'Day');
+                    phys_act.addColumn('number', 'Physical Activity');
+                }
+                drawPhysActChart();
+            });
+        }
+
+        function drawSumChart() {
+            var sumOptions = {
+                title: 'Mental Fitness Chart',
+                curveType: 'function',
+                width: 700,
+                height: 350,
+                legend: { position: 'none' },
+                vAxis: { title: 'Mental Fitness value' },
+                hAxis: { title: 'Day' },
+                backgroundColor: '#fff',
+            };
+            var sumOptions2 = {
+                title: 'Mental Fitness Chart',
+                curveType: 'function',
+                width: 1600,
+                height: 800,
+                legend: { position: 'none' },
+                vAxis: { title: 'Mental Fitness value' },
+                hAxis: { title: 'Day' },
+                backgroundColor: '#fff',
+            };
+            var sumChart = new google.visualization.AreaChart(document.getElementById('sum_chart_div'));
+            sumChart.draw(sum, sumOptions);
+
+
+            var sumChart2 = new google.visualization.AreaChart(document.getElementById('sum_chart_div2'));
+            sumChart2.draw(sum, sumOptions2);
+
+        }
+
+        function drawSleepChart() {
+            var sleepOptions = {
+                title: 'Sleep Chart',
+                curveType: 'function',
+                width: 400,
+                height: 200,
+                legend: { position: 'none' },
+                vAxis: { title: 'Sleep' },
+                hAxis: { title: 'Day' },
+                backgroundColor: '#fff',
+                chartArea: { left: 50, top: 50, width: '80%', height: '80%' } // adjust these values as you want
+            };
+
+            var sleepOptions2 = {
+                title: 'Sleep Chart',
+                curveType: 'function',
+                width: 1600,
+                height: 800,
+                legend: { position: 'none' },
+                vAxis: { title: 'Sleep' },
+                hAxis: { title: 'Day' },
+                backgroundColor: '#fff',
+                chartArea: { left: 50, top: 50, width: '80%', height: '80%' } // adjust these values as you want
+            };
+
+            var sleepChart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+            sleepChart.draw(sleepData, sleepOptions);
+
+            var sleepChart2 = new google.visualization.ColumnChart(document.getElementById('chart_div2'));
+            sleepChart2.draw(sleepData, sleepOptions2);
+        }
+
+        function drawHeartRateChart() {
+            var heartRateOptions = {
+                title: 'Heart Rate Chart',
+                curveType: 'function',
+                width: 400,
+                height: 200,
+                legend: { position: 'none' },
+                vAxis: { title: 'Heart Rate', minValue: 0, maxValue: 200, format: '# bpm' },
+                hAxis: { title: 'Day' },
+                backgroundColor: '#fff',
+                colors: ['#f00'], // use red color for the line // add points to the line
+            };
+            var heartRateOptions2 = {
+                title: 'Heart Rate Chart',
+                curveType: 'function',
+                width: 1600,
+                height: 800,
+                legend: { position: 'none' },
+                vAxis: { title: 'Heart Rate', minValue: 0, maxValue: 200, format: '# bpm' },
+                hAxis: { title: 'Day' },
+                backgroundColor: '#fff',
+                colors: ['#f00'], // use red color for the line // add points to the line
+            };
+            var heartRateChart = new google.visualization.LineChart(document.getElementById('heart_rate_chart_div'));
+            heartRateChart.draw(heartRateData, heartRateOptions);
+
+            var heartRateChart2 = new google.visualization.LineChart(document.getElementById('heart_rate_chart_div2'));
+            heartRateChart2.draw(heartRateData, heartRateOptions2);
+        }
+
+        function drawMoodChart() {
+            var moodOptions = {
+                title: 'Mood Chart',
+                curveType: 'function',
+                width: 400,
+                height: 200,
+                legend: { position: 'none' },
+                vAxis: { title: 'Mood' },
+                hAxis: { title: 'Day' },
+                backgroundColor: '#fff',
+            };
+            var moodOptions2 = {
+                title: 'Mood Chart',
+                curveType: 'function',
+                width: 1600,
+                height: 800,
+                legend: { position: 'none' },
+                vAxis: { title: 'Mood' },
+                hAxis: { title: 'Day' },
+                backgroundColor: '#fff',
+            };
+            var moodChart = new google.visualization.LineChart(document.getElementById('mood_chart_div'));
+            moodChart.draw(mood, moodOptions);
+
+            var moodChart2 = new google.visualization.LineChart(document.getElementById('mood_chart_div2'));
+            moodChart2.draw(mood, moodOptions2);
+        }
+
+        function drawSocIntChart() {
+            var socIntOptions = {
+                title: 'Social Interaction Chart',
+                curveType: 'function',
+                width: 400,
+                height: 200,
+                legend: { position: 'none' },
+                vAxis: { title: 'Social Interaction' },
+                hAxis: { title: 'Day' },
+                backgroundColor: '#fff',
+            };
+            var socIntOptions2 = {
+                title: 'Social Interaction Chart',
+                curveType: 'function',
+                width: 1600,
+                height: 800,
+                legend: { position: 'none' },
+                vAxis: { title: 'Social Interaction' },
+                hAxis: { title: 'Day' },
+                backgroundColor: '#fff',
+            };
+            var socIntChart = new google.visualization.LineChart(document.getElementById('soc_int_chart_div'));
+            socIntChart.draw(soc_int, socIntOptions);
+
+            var socIntChart2 = new google.visualization.LineChart(document.getElementById('soc_int_chart_div2'));
+            socIntChart2.draw(soc_int, socIntOptions2);
+        }
+
+        function drawStressChart() {
+            var stressOptions = {
+                title: 'Stress Chart',
+                curveType: 'function',
+                width: 400,
+                height: 200,
+                legend: { position: 'none' },
+                vAxis: { title: 'Stress' },
+                hAxis: { title: 'Day' },
+                backgroundColor: '#fff',
+            };
+            var stressOptions2 = {
+                title: 'Stress Chart',
+                curveType: 'function',
+                width: 1600,
+                height: 800,
+                legend: { position: 'none' },
+                vAxis: { title: 'Stress' },
+                hAxis: { title: 'Day' },
+                backgroundColor: '#fff',
+            };
+            var stressChart = new google.visualization.LineChart(document.getElementById('stress_chart_div'));
+            stressChart.draw(stress, stressOptions);
+
+            var stressChart2 = new google.visualization.LineChart(document.getElementById('stress_chart_div2'));
+            stressChart2.draw(stress, stressOptions2);
+        }
+
+        function drawPhysActChart() {
+            var physActOptions = {
+                title: 'Physical Activity Chart',
+                curveType: 'function',
+                width: 400,
+                height: 200,
+                legend: { position: 'none' },
+                vAxis: { title: 'Physical Activity' },
+                hAxis: { title: 'Day' },
+                backgroundColor: '#fff',
+            };
+
+            var physActOptions2 = {
+                title: 'Physical Activity Chart',
+                curveType: 'function',
+                width: 1600,
+                height: 800,
+                legend: { position: 'none' },
+                vAxis: { title: 'Physical Activity' },
+                hAxis: { title: 'Day' },
+                backgroundColor: '#fff',
+            };
+
+            var physActChart = new google.visualization.LineChart(document.getElementById('phys_act_chart_div'));
+            physActChart.draw(phys_act, physActOptions);
+
+            var physActChart2 = new google.visualization.LineChart(document.getElementById('phys_act_chart_div2'));
+            physActChart2.draw(phys_act, physActOptions2);
+        }
+
+        function log() {
+            var use = document.getElementById("username_input").value;
+            database.ref('userinfo/' + use).set({
+                hour: 0,
+                minute: 0,
+                time: 0
+            });
+        }
+
+
+        google.charts.setOnLoadCallback(initialize);
+    </script>
+    <style>
+        /* Style the edit button */
+        /*  #edit_button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }*/
+
+        /* Style the pop up */
+        #pop_up {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 400px;
+            width: 400px;
+            color: white;
+            height: auto;
+            background-color: rgba(77, 66, 66, 0.8);
+            border: 2px solid #333;
+            padding: 20px;
+        }
+
+        .popup-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 400px;
+            width: 300px;
+            padding: 20px;
+            background-color: rgba(77, 66, 66, 0.4);
+
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
+        }
+
+        .popup-container #close_button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(77, 66, 66, 0.4);
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .popup-container label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .popup-container input[type="text"],
+        .popup-container input[type="number"],
+        .popup-container input[type="range"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .popup-container button {
+            width: 100%;
+            padding: 8px 16px;
+            background-color: orange;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .popup-container button:hover {
+            background-color: #45a049;
+        }
+
+        /* Style the close button */
+        #close_button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Style the labels and inputs */
+        label,
+        input {
+            display: block;
+        }
+
+        label {
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+        }
+
+        input[type="range"] {
+            width: calc(100% - 20px);
+        }
+
+        /* Style the submit button */
+        #submit_button {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+    </head>
+
+    <body>
+
+        <!-- Create the edit button -->
+
+
+        <!-- Create the pop up -->
+        <div class="popup-container" id="pop_up">
+
+            <!-- Create the close button -->
+            <button id="close_button">X</button>
+
+            <!-- Create the labels and inputs -->
+            <label for="username_input">Username:</label>
+            <input type="text" id="username_input">
+            <label for="sleep_value_input">Sleep Value:</label>
+            <input type="number" id="sleep_value_input">
+            <br>
+            <br>
+            <label for="heart_rate_value_input">Heart Rate Value:</label>
+            <input type="number" id="heart_rate_value_input">
+            <br>
+            <br>
+            <label for="mood_value_input">Mood Value:</label>
+            <input type="range" id="mood_value_input" min="1" max="10">
+            <br>
+            <br>
+
+            <label for="soc_int_value_input">Social Interaction Value:</label>
+            <input type="range" id="soc_int_value_input" min="1" max="10">
+
+            <br>
+            <br>
+            <label for="stress_value_input">Stress Value:</label>
+            <input type="range" id="stress_value_input" min="1" max="10">
+            <br>
+            <br>
+            <label for="phys_act_value_input">Physical Activity Value:</label>
+            <input type="range" id="phys_act_value_input" min="1" max="10">
+
+            <!-- Create the submit button -->
+            <button id="append_sum_button">SUBMIT</button>
+
+        </div>
+
+        <script>
+
+
+            // Get the edit button element
+            var edit_button = document.getElementById("edit_button");
+
+            // Get the pop up element
+            var pop_up = document.getElementById("pop_up");
+
+            // Get the close button element
+            var close_button = document.getElementById("close_button");
+
+            // Get the submit button element
+            var submit_button = document.getElementById("append_sum_button");
+
+            // Define a function to show the pop up
+            function showPopUp() {
+
+                // Set the display of the pop up to block
+                pop_up.style.display = "block";
+            }
+
+            // Define a function to hide the pop up
+            function hidePopUp() {
+
+                // Set the display of the pop up to none
+                pop_up.style.display = "none";
+            }
+
+            // Add a click event listener to the edit button
+            edit_button.addEventListener("click", showPopUp);
+
+            // Add a click event listener to the close button
+            close_button.addEventListener("click", hidePopUp);
+
+            // Add a click event listener to the submit button
+            submit_button.addEventListener("click", hidePopUp);
+        </script>
+    </body>
+
+</html>

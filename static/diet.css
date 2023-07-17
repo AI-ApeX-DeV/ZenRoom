@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+}
+h1 {
+    text-align: center;
+}
+.wrapper {
+    display: flex;
+}
+.left-box .content {
+    color: white;
+}
+.right-box .content {
+    color: white;
+}
+.left-box {
+    flex: 1;
+    width: 300px;
+    height: 700px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    margin-right: 20px;
+    background-color: rgba(77, 66, 66, 0.4); 
+    overflow: auto;
+}
+.right-box {
+    flex: 1;
+    width: 300px;
+    height: 700px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    margin-left: 20px;
+    background-color: rgba(77, 66, 66, 0.4); 
+    overflow: auto;
+}
+
+.content {
+    padding: 20px;
+}
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(242, 242, 242, 0.2); /* Adjust the alpha value (0.5) to set the transparency level */
+    border-radius: 5px;
+}
+
+#video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+input[type="number"],
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+#diseases {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    resize: vertical; /* Allow vertical resizing */
+}
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+.output {
+    margin-top: 20px;
+    font-weight: bold;
+}

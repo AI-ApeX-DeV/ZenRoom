@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% if title %}
+    <title>ZenRoom- {{ title }}</title>
+    {% else %}
+    <title>ZenRoom</title>
+    {% endif %}
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600&display=swap"
+        rel="stylesheet">
+    {% block head %}
+    {% endblock head %}
+</head>
+{% block content %}
+{% endblock content %}
+<header class="header" data-header>
+    <div class="container">
+
+        <a href="{{url_for('home')}}" class="logo">
+            ZenRoom <span class="span" style="color: orange;">.</span>
+        </a> 
+
+        <nav class="navbar" data-navbar>
+
+            <button class="nav-toggle-btn" aria-label="close menu" data-nav-toggler>
+                <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+            </button>
+
+            <ul class="navbar-list">
+
+                <li class="navbar-item">
+                    <a href="#about" class="navbar-link" data-nav-link></a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="{{url_for('exercise')}}" class="navbar-link" data-nav-link style="
+                    border-right: 1px dotted;
+                    height: 65px;">Mental Workout</a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="{{url_for('therapy')}}" class="navbar-link" data-nav-link style="
+                    border-right: 1px dotted; height: 65px;">Therapy</a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="{{url_for('diary')}}" class="navbar-link" data-nav-link style="
+                    border-right: 1px dotted;
+                    height: 65px;">EDiary</a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="{{url_for('user_dashboard')}}" class="navbar-link" data-nav-link style="
+                    border-right: 1px dotted;
+                    height: 65px;">Dashboard</a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="{{url_for('serious')}}" class="navbar-link" data-nav-link style="
+                    border-right: 1px dotted;
+                    height: 65px;">Disease</a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="{{url_for('diet')}}" class="navbar-link" target="_blank" data-nav-link style="
+                    border-right: 1px dotted;
+                    height: 65px;">Diet</a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="{{url_for('map')}}" class="navbar-link" data-nav-link style="
+                    border-right: 1px dotted;
+                    height: 65px;">Therapist</a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="{{url_for('community')}}" target="_blank" class="navbar-link" data-nav-link style="
+                    border-right: 1px dotted;
+                    height: 65px;">Community</a>
+                </li>
+
+            </ul>
+
+        </nav>
+        <a href="{{url_for('login')}}" class="btn btn-primary">SignUp</a>
+
+        <button class="nav-toggle-btn" aria-label="open manu" data-nav-toggler>
+            <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+
+        <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+</header>

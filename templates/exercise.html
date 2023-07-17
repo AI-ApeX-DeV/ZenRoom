@@ -1,0 +1,130 @@
+{% extends 'layout.html' %}
+{% block head %}
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{url_for('static', filename='exercise.css')}}">
+{% endblock head %}
+{% block content %}
+
+<body>
+    <div class="wrapper">
+        <div class="exercise-title-wrapper">
+            <div class="exercise-title"> Mental Workout </div>
+        </div>
+        <div class="exercise-subheading-wrapper">
+            <div class="exercise-subheading"> Yoga </div>
+            <p style="margin:10px"> Yoga is a great way to improve mental health and fitness. Here are some yoga
+                exercises you can try:</p>
+        </div>
+
+        <div class="card-container">
+            <div class="card">
+                <img src="{{url_for('static', filename=" yoga1.wep")}}" class="card-img" alt="Avatar">
+                <div class="container">
+                    <h4><b>Corpse Pose</b></h4>
+                    <p>This pose helps to relax the mind and body, relieve stress and anxiety, and improve sleep</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{{url_for('static', filename=" yoga2.wep")}}" class="card-img" alt="Avatar">
+                <div class="container">
+                    <h4><b>Mountain Pose</b></h4>
+                    <p>This pose helps to improve focus, balance, and concentration.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{{url_for('static', filename=" yoga3.wep")}}" class="card-img" alt="Avatar">
+                <div class="container">
+                    <h4><b>Tree Pose</b></h4>
+                    <p>This pose helps to improve balance and focus, and is also great for stress relief.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{{url_for('static', filename=" yoga4.wep")}}" class="card-img" alt="Avatar">
+                <div class="container">
+                    <h4><b>Seated Forward Bend</b></h4>
+                    <p>This pose helps to calm the mind and relieve stress and anxiety.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{{url_for('static', filename=" yoga5.wep")}}" class="card-img" alt="Avatar">
+                <div class="container">
+                    <h4><b>Cobra Pose</b></h4>
+                    <p>This pose helps to improve posture, increase flexibility, and relieve stress and fatigue.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{{url_for('static', filename=" yoga6.wep")}}" class="card-img" alt="Avatar">
+                <div class="container">
+                    <h4><b>Downward Facing Dog Pose</b></h4>
+                    <p>This pose helps to relieve stress and anxiety, improve focus and concentration, and stretch the
+                        entire body.</p>
+                </div>
+            </div>
+        </div>
+        <div class="tips-heading">
+            Games
+        </div>
+        <div class="card-container">
+            <!DOCTYPE html>
+            <html>
+
+            <head>
+                <title>Embedded Game</title>
+            </head>
+
+            <body>
+                <embed src="https://cdn.htmlgames.com/Bingo" style="width: 600px; height: 600px" />
+                <embed src="https://cdn.htmlgames.com/ColoringMandalas/" style="width: 600px; height: 600px" />
+                <embed src="https://cdn.htmlgames.com/Reach2048/" style="width: 600px; height: 600px" />
+                <iframe frameborder="0" scrolling="no" src="https://mczak.com/code/sudoku/suframe/" style="
+        border: 0px solid #eee;
+        overflow: hidden;
+        width: 600px;
+        height: 600px;
+      " width="400"></iframe>
+                <embed src="https://cdn.htmlgames.com/SlidePuzzle/" style="width: 600px; height: 600px" />
+
+                <embed src="https://cdn.htmlgames.com/MahjonggChina/" style="width: 600px; height: 600px" />
+            </body>
+
+            </html>
+        </div>
+        <div class="tips-heading">
+            Some Tips For You
+        </div>
+        <p class="tip-container" style="padding-top: 20px">
+            Here are some tips that can help improve mental health and mental fitness:
+        <ol>
+            <li>Exercise regularly: Exercise has been shown to release endorphins, which are natural mood enhancers.
+                Regular exercise can also improve sleep, reduce stress, and increase self-esteem.</li>
+            <li>Practice mindfulness meditation: Mindfulness meditation involves focusing on the present moment and
+                accepting your thoughts and feelings without judgment. It has been shown to reduce anxiety and
+                depression and improve overall well-being.</li>
+            <li>Get enough sleep: Sleep is essential for good mental health. It helps to regulate emotions and improve
+                cognitive functioning. Aim for 7-9 hours of sleep per night.
+            </li>
+            <li>Connect with others: Social support is important for good mental health. Make time for friends and
+                family, join clubs or organizations, or volunteer in your community.</li>
+            <li>Eat a healthy diet: A healthy diet can help improve mood and overall well-being. Include plenty of
+                fruits, vegetables, whole grains, and lean proteins in your diet.</li>
+            <li>Manage stress: Chronic stress can lead to anxiety and depression. Find healthy ways to manage stress
+                such as deep breathing, yoga, or spending time in nature.</li>
+            <li>Practice self-care: Taking care of yourself is important for good mental health. Set aside time for
+                activities you enjoy, take a relaxing bath, or read a book.
+            </li>
+            <li>Remember, mental health is just as important as physical health. Prioritizing your mental well-being can
+                have a positive impact on all aspects of your life.
+            </li>
+        </ol>
+        </p>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger chat-title="The ZenRoom" agent-id="65d436db-fdd4-486e-90ca-037e12a44af2"
+        language-code="en"></df-messenger>
+    <script src="chat.js"></script>
+</body>
+{% endblock content %}
