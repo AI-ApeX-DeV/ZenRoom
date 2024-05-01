@@ -241,12 +241,28 @@
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
 
 </body>
+<!-- Existing layout.html content -->
+<!-- Add CopilotKit JavaScript bundle -->
+<script src="https://cdn.jsdelivr.net/npm/@copilotkit/react-core/dist/index.js"></script>
+<script>
+    // Define your CopilotKit API endpoint
+    const COPILIT_API_URL = "https://your.copilotkit.api";
+    // Initialize CopilotKit
+    const copilotKit = new CopilotKit({
+        url: COPILIT_API_URL
+    });
+    // Render CopilotKit chatbot
+    copilotKit.render(document.getElementById('root'));
+</script>
+</body>
+</html>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-<df-messenger chat-title="The ZenRoom" agent-id="65d436db-fdd4-486e-90ca-037e12a44af2"
+<df-messenger chat-title="The ZenRoom.." agent-id="65d436db-fdd4-486e-90ca-037e12a44af2"
     language-code="en"></df-messenger>
 <script src="chat.js"></script>
 {% endblock content %}
