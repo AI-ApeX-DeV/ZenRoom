@@ -28,7 +28,7 @@ Password: xyz123</br>
 2. Once logged in, users have three options to choose from, depending on what they need.</br>
 3. The therapy feature connects the user to our chatbot where user can interact and seek help from the GPT 3 API and if the condition of the user doesnt seem to improve using our app, the user can also locate the nearest therapist using our inbuild map to locate the nearest therapist near and the user can accordingly schedule an appointment</br>
 4. The user can also create an online journal, where they can write down their thoughts and feelings and can track their improvement.</br>
-5. The user can also visit workouts section where varous exercises, activities and games are listed for improving their mental health.</br>
+5. The user can also visit workouts section where varous exercises, activities and games are listed for improving their mental health.</br><br>
 
 <h2>Architecture and Technologies Used</h2>
 1. <b>Frontend: </b>HTML,CSS,JavaScript</br>
